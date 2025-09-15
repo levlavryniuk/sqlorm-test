@@ -6,7 +6,7 @@ use sqlorm::table;
 pub struct User {
     #[sql(pk)]
     #[sql(relation(has_many -> Post, relation ="posts", on = creator_id))]
-    pub id: i64,
+    pub id: i32,
     #[sql(unique)]
     pub email: String,
     pub username: String,
@@ -22,11 +22,11 @@ pub struct User {
 #[derive(Debug, Clone, Default)]
 pub struct Post {
     #[sql(pk)]
-    pub id: i64,
+    pub id: i32,
     pub title: String,
     pub body: String,
     #[sql(relation(belongs_to -> User, relation = "creator", on = id))]
-    pub creator_id: i64,
+    pub creator_id: i32,
     #[sql(timestamp(created_at, chrono::Utc::now()))]
     pub created_at: DateTime<Utc>,
     #[sql(timestamp(updated_at, chrono::Utc::now()))]

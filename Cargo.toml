@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-sqlorm = { version = "0.4.4", features = ["sqlite", "extra-traits"] }
+sqlorm = { path = "../sqlorm/", features = ["postgres", "extra-traits"] }
 sqlx = { version = "0.8.6", features = ["chrono", "migrate"] }
 chrono = "0.4.26"
 tokio = { version = "1.29.1", features = ["full"] }
